@@ -67,7 +67,7 @@ void Lectura_Archivos(string &texto, string nombre){
     }
 
     getline(archivo, add);
-    while(add != ""){
+    while(getline(archivo, add)){
         texto += add+'\n';
         getline(archivo, add);
     }
@@ -363,7 +363,9 @@ void Decodificacion_Metodo2(string &decodificado, string fuente, unsigned int se
         }
         codificado+= bloque1.at(1);
         for(unsigned int i = 2; i < bloque1.length(); i++){
-            codificado += bloque1.at(i);
+            if(bloque1.at(i) != '\n'){
+                codificado += bloque1.at(i);
+             }
         }
         codificado+= bloque1.at(0);
         if(bloque1.length() < semilla){
