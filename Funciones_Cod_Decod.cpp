@@ -67,9 +67,10 @@ void Lectura_Archivos(string &texto, string nombre){
     }
 
     getline(archivo, add);
+    texto += add+'\n';
     while(getline(archivo, add)){
-        texto += add+'\n';
         getline(archivo, add);
+        texto += add+'\n';
     }
     archivo.close();
 }
